@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Google Sing in DEMO </title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="1017614269036-4jonbv46ou3eqnkkkki4d2s3vjriv113.apps.googleusercontent.com">
+  </head>
+  <body>
+
+    <!-- <img src="http://localhost:3000/imagen/productos/5dfd67fde28074130299a7fb847_1578321122847.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJBRE1JTl9ST0xFIiwiZ29vZ2xlIjpmYWxzZSwiX2lkIjoiNWRkOTdjMzU4NjZhNGIwZjAyYzk3MmM1Iiwibm9tYnJlIjoiWW9wbyIsImVtYWlsIjoieW95b0BnbWFpbC5jb20iLCJfX3YiOjAsImltZyI6IjVkZDk3YzM1ODY2YTRiMGYwMmM5NzJjNTU3NV8xNTc4MzIwMzE1NTc1LnBuZyJ9LCJpYXQiOjE1ODE4Nzg5NjcsImV4cCI6MTU4MjA1MTc2N30.0ZLkZAJpE-JYtQFtcAA18_6l-hveFSuQt68xvZgzsEs" alt=""> -->
+
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <a href="#" onclick="signOut();">Sign out</a>
+      <script>
+        function signOut() {
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.signOut().then(function () {
+            console.log('User signed out.');
+          });
+        }
+      </script>
+
+    <script type="text/javascript">
+      function onSignIn(googleUser) {
+          var profile = googleUser.getBasicProfile();
+          console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+          console.log('Name: ' + profile.getName());
+          console.log('Image URL: ' + profile.getImageUrl());
+          console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      }
+    </script>
+
+  </body>
+
+</html>
